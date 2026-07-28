@@ -29,7 +29,7 @@ Double-click `Create Steam Shortcuts.cmd` and follow the prompts:
 ## One-liner download
 
 ```powershell
-irm https://raw.githubusercontent.com/abd3lraouf/steam-icon-fixer/main/Create%20Steam%20Shortcuts.cmd -OutFile "$HOME\Desktop\Create Steam Shortcuts.cmd"
+iwr https://raw.githubusercontent.com/abd3lraouf/steam-icon-fixer/main/Create%20Steam%20Shortcuts.cmd -OutFile "$HOME\Desktop\Create Steam Shortcuts.cmd"
 ```
 
 ## How it works
