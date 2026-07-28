@@ -26,11 +26,13 @@ Double-click `Create Steam Shortcuts.cmd` and follow the prompts:
 3. **CDN** — choose icon CDN (Fastly default, or Cloudflare)
 4. **Process** — downloads icons, creates/fixes shortcuts, cleans orphans
 
-## One-liner (download & run)
+## One-liner
 
 ```powershell
-iwr https://raw.githubusercontent.com/abd3lraouf/steam-icon-fixer/main/Create%20Steam%20Shortcuts.cmd -OutFile "$env:TEMP\ssf.cmd"; & "$env:TEMP\ssf.cmd"
+irm https://raw.githubusercontent.com/abd3lraouf/steam-icon-fixer/main/ssf.ps1 | iex
 ```
+
+Pastes into PowerShell and launches the tool in its own window. The `ssf.ps1` bootstrap downloads the latest `Create Steam Shortcuts.cmd` and runs it, so you always get the current version.
 
 ## How it works
 
