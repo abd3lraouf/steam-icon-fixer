@@ -27,6 +27,10 @@ irm github.com/abd3lraouf/steam-icon-fixer/raw/main/s.ps1|iex
 - Steam installed
 - `curl.exe` (built into Windows 10+)
 
+It runs on **Windows PowerShell 5.1** (`powershell.exe`), which ships with Windows. Launch it from
+PowerShell 7 / Windows Terminal and it hands itself over automatically — the embedded C# UI toolkit
+is compiled against the desktop WinForms assemblies, which PowerShell 7 resolves differently.
+
 ## Usage
 
 Run **`Steam Shortcut Fixer GUI.cmd`** — a dark-themed window opens and scans automatically:

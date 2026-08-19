@@ -11,6 +11,24 @@
 #           powershell.exe -NoProfile -ExecutionPolicy Bypass -STA -File ThisFile.ps1
 # =============================================================================
 
+# This GUI is built for Windows PowerShell 5.1: the embedded C# toolkit is
+# compiled with Add-Type against the desktop System.Windows.Forms/System.Drawing,
+# which PowerShell 7 resolves differently (every SSF.* type would come back
+# missing). PowerShell 7 is STA by default, so it happily runs this file - hand
+# the script over to powershell.exe instead of failing halfway through the form.
+if ($PSVersionTable.PSEdition -eq 'Core') {
+    $ps51 = Join-Path $env:SystemRoot 'System32\WindowsPowerShell\v1.0\powershell.exe'
+    if ($PSCommandPath -and (Test-Path -LiteralPath $ps51)) {
+        & $ps51 -NoProfile -ExecutionPolicy Bypass -STA -File $PSCommandPath
+        exit $LASTEXITCODE
+    }
+    Write-Host ''
+    Write-Host '  Steam Shortcut Fixer needs Windows PowerShell 5.1 (powershell.exe).' -ForegroundColor Red
+    Write-Host '  Run it with:  powershell -NoProfile -ExecutionPolicy Bypass -STA -File <this file>' -ForegroundColor DarkGray
+    Write-Host ''
+    return
+}
+
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 [System.Windows.Forms.Application]::EnableVisualStyles()
