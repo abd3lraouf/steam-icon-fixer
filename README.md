@@ -79,6 +79,12 @@ The GUI (`Steam-Shortcut-Fixer.ps1`) is a single zero-dependency PowerShell 5.1 
 
 The original console edition is still there: double-click **`Create Steam Shortcuts.cmd`** for the numbered-menu flow (scan → pick games by number → pick CDN). It uses a two-phase `.cmd`/PowerShell polyglot architecture; icons are fetched from `api.steamcmd.net` for the `clienticon` hash, then downloaded from the CDN as `.ico` files to `Steam\steam\games\`.
 
+## Repo assets
+
+`docs/screenshot.png` is the README shot; `docs/social-preview.png` is the 1280×640 card for
+**Settings → General → Social preview** (GitHub only accepts that upload through the web UI).
+Both are regenerated with `docs/make-social-preview.ps1` after refreshing the screenshot.
+
 ## Author
 
 **abd3lraouf** — [GitHub](https://github.com/abd3lraouf)
